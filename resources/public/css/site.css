@@ -13,17 +13,28 @@ html {
   left: 150px;
   bottom: 0px;
   z-index: 1000;
-   /* background-image: url("/pokeball.png") */
+   /* background: url("/img/pokeball.png") */
   /* background-color: #92AD40; */
   padding: 5px;
   color: #FFFFFF;
   font-weight: bold;
 
 }
+
+#navball-row .input {
+  height: fit-content;
+  margin: auto 0 ;
+}
 #pokemon-sprite {
   position: absolute ;
   margin: 0 auto ;
   width: 50% ;
+}
+#sprite-mask {
+  position: absolute ;
+  margin: 0 auto ;
+  width: 50%;
+  background-color: #000000;
 }
 h1, h2, h3 {
   color: #000;

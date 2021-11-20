@@ -7,7 +7,9 @@
             [cognitect.transit :as t]))
 
 (def default-db
-  {:name "re-frame"})
+  {:name "re-frame"
+   :guess nil
+   :pokemon nil})
 
 
 (def db-uri "datomic:mem://foo")

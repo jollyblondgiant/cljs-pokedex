@@ -4,6 +4,7 @@
    [re-frame.core :as re-frame :refer [dispatch]]
    [cljs-pokedex.db :as db]
    [cljs-http.client :as http]
+   [clojure.string :refer [lower-case]]
    ))
 
 (re-frame/reg-event-db
@@ -23,15 +24,33 @@
                   (str "https://pokeapi.co/api/v2/pokemon/" num)
                   {:with-credentials? false
                    :headers {"Content-Type" "application/json"}}))]
-         (js/console.log "dispatching response")
-         (dispatch [::new-pokemon-resp response])
-         ))
+         (dispatch [::new-pokemon-resp response])))
    (-> db
        (assoc :sprite :pending))))
 
 (re-frame/reg-event-db
  ::new-pokemon-resp
- (fn [db [_ response]]
-   (let [sprite (-> response :body :sprites :front_default)]
-     (-> db
-         (assoc :sprite sprite)))))
+ (fn [db [_ {{{sprite :front_default} :sprites
+              name :name} :body}]]
+   (-> db
+       (assoc
+        :pokemon {:sprite sprite :name name}
+        :sprite sprite
+        :guess :pending))))
+
+(re-frame/reg-event-db
+ ::input-guess
+ (fn [db [_ input]]
+   (assoc db :guess-input input)))
+
+(re-frame/reg-event-db
+ ::guess-pokemon
+ (fn [db [_ guess]]
+
+   (if (= (lower-case guess) (-> db :pokemon :name))
+     (do
+       (js/console.log  guess)
+       (assoc db :guess true))
+     (do
+       (js/console.log "try again! it's:" (-> db :pokemon :name))
+       (assoc db :guess false)))))
