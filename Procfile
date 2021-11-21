@@ -1,1 +1,1 @@
-web: npm watch run
+web: shadow-cljs watch app
