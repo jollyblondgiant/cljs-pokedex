@@ -4,6 +4,7 @@ html {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  overflow-y: hidden;
 }
 
 #navball-row {
@@ -19,6 +20,59 @@ html {
   font-weight: bold;
 
 }
+#strikes {
+  position: absolute;
+}
+.heart-strike {
+  width: 20px;
+}
+#login-screen {
+  position: absolute;
+}
+
+
+#poke-prof {
+  height: -webkit-fill-available;
+}
+#guess-input {
+  height: fit-content;
+  margin: auto 0;
+  margin-left: 20%;
+}
+.guess {
+  margin: auto 0;
+  color: yellow;
+  font-size: x-large;
+  margin-left: 20%;
+  text-shadow: -2px -2px 0 blue,
+               2px -2px 0 blue,
+               -2px 2px 0 blue,
+               2px 2px 0 blue;
+  font-family: "Pokemon Solid";
+}
+
+#login-screen > div > h2 {
+  margin-top: 10%;
+}
+.top-buffer-10 {
+  margin-top: 10px;
+}
+.poke-font {
+  color: yellow;
+  text-shadow: -2px -2px 0 blue,
+               2px -2px 0 blue,
+               -2px 2px 0 blue,
+               2px 2px 0 blue;
+  font-family: "Pokemon Solid";
+}
+
+.region-ball {
+  margin-left: 2%;
+}
+#regions{
+  display: block;
+}
+
 #navball.row > input {
   margin-left: 20%;
 }

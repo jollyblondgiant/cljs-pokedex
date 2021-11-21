@@ -11,7 +11,10 @@
    :guess nil
    :caught #{}
    :pokemon nil
-   :strikes 3})
+   :strikes 3
+   :trainer nil
+   :login nil
+   :regions #{}})
 
 
 (def db-uri "datomic:mem://foo")
