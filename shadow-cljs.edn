@@ -1,4 +1,4 @@
-{:nrepl {:port 8777}
+{:nrepl {:port process.env.PORT}
  :source-paths ["src" "test"]
  :dependencies
  [[reagent "1.1.0"]
