@@ -1,1 +1,1 @@
-web: shadow-cljs watch app
+web: npm install && shadow-cljs watch app
