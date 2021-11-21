@@ -1,1 +1,1 @@
-(defproject cljs-pokedex)
+(defproject cljs-pokedex "")
