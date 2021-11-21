@@ -14,15 +14,15 @@
    db/default-db))
 
 (def region-map
-  {:kanto '(1 152)
-   :johto '(152 252)
-   :hoenn '(252 387)
+  {:kanto  '(1   152)
+   :johto  '(152 252)
+   :hoenn  '(252 387)
    :sinnoh '(387 494)
-   :unova '(494 650)
-   :kalos '(650 722)
-   :alola '(722 810)
-   :galar '(810 899)
-   :all '(1 899)})
+   :unova  '(494 650)
+   :kalos  '(650 722)
+   :alola  '(722 810)
+   :galar  '(810 899)
+   :all    '(1   899)})
 
 (re-frame/reg-event-db
  ::new-pokemon

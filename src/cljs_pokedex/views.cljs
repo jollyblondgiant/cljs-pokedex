@@ -96,7 +96,7 @@
   (let [strikes (subscribe [::subs/strikes])
         trainer (subscribe [::subs/trainer])]
     [:div#strikes.col-md-2.offset-md-9
-     [:span.poke-font @trainer]
+     [:span.poke-font @trainer "  "]
      (for [heart (range @strikes)]
        ^{:key heart}
        [:img.heart-strike {:src "img/heart.png"}])]))
@@ -125,14 +125,45 @@
      [party-panel]]))
 
 (defn lose-screen []
-  [:div#lose-screen
-   "You whited out! refresh page to return to nearest PokeCenter and try again!"])
+  [:div#lose-screen.row
+   [:div.col-md1
+    [:img#poke-prof {:src "img/rocket.png"}]]
+   [:div.col-md-3
+    [:h2.poke-font
+     "Oh No! You whited out!"]
+    [:button.btn.btn-primary
+     {:href "/"}
+     [:a.poke-font {:href "/"} "Try Again!"]]]])
 
 (defn win-screen []
-  [:div#win-screen.row
-   [:div.col-md1
-    [:img#poke-prof {:src "img/prof-oak.png"}]]
-   "you win! you are the very best, like no one ever was!"])
+  (let [party   (subscribe [::subs/caught])
+        [poke mon] (split-at 3 @party)
+        trainer (subscribe [::subs/trainer])]
+    [:div#win-screen.offset-md-2
+     #_[:h2.poke-font.top-buffer-10
+        ""]
+     [:h2.poke-font.top-buffer-10 "you win! you are the very best, like no one ever was!"]
+     [:h2.poke-font.top-buffer-10 @trainer "'s party:"]
+     [:div.row
+      [:div.col-md-6
+       (for [pokemon poke]
+         ^{:key (:num pokemon)}
+         [:div
+          [:img {:src (:sprite pokemon)}]
+          [:span.poke-font (:name pokemon)]])]
+      [:div.col-md-6
+       (for [pokemon mon]
+         ^{:key (:num pokemon)}
+         [:div
+          [:img {:src (:sprite pokemon)}]
+          [:span.poke-font (:name pokemon)]])]
+      [:button.btn.btn-primary
+       {:href "/"}
+       [:a.poke-font {:href "/"} "Try Again!"]]]
+
+
+
+     ]))
 
 (defn login-screen []
   (let [login (subscribe [::subs/login])
@@ -141,7 +172,6 @@
      [:div.col-md1
       [:img#poke-prof {:src "img/prof-oak.png"}]]
      [:div.col-md3.poke-font
-      ;;{:style {:margin-top "-150px"}}
       [:h2.poke-font "Welcome to \"Who's that PokeMon?!\""]
       [:div.row
        [:input#trainer-login.col-md-5

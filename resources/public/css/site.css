@@ -29,7 +29,13 @@ html {
 #login-screen {
   position: absolute;
 }
+#lose-screen {
+  position: absolute;
+}
+#win-screen {
+  position: absolute;
 
+}
 
 #poke-prof {
   height: -webkit-fill-available;
