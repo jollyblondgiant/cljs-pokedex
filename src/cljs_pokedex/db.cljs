@@ -9,7 +9,9 @@
 (def default-db
   {:name "re-frame"
    :guess nil
-   :pokemon nil})
+   :caught #{}
+   :pokemon nil
+   :strikes 3})
 
 
 (def db-uri "datomic:mem://foo")
@@ -58,6 +60,3 @@
 ;;      [?pokemon :pokemon/name ?name]
 ;;      [?pokemon :pokemon/sprite ?sprite]
 ;;      [?pokemon :pokemon/num ?num]]))
-
-(defn random-pokemon [region] ;; #{:johto :kanto}
-  )

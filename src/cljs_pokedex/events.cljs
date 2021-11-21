@@ -31,10 +31,11 @@
 (re-frame/reg-event-db
  ::new-pokemon-resp
  (fn [db [_ {{{sprite :front_default} :sprites
-              name :name} :body}]]
+              num :id
+              name :name :as pokemon} :body}]]
    (-> db
        (assoc
-        :pokemon {:sprite sprite :name name}
+        :pokemon {:sprite sprite :name name :num num}
         :sprite sprite
         :guess :pending))))
 
@@ -46,11 +47,7 @@
 (re-frame/reg-event-db
  ::guess-pokemon
  (fn [db [_ guess]]
-
    (if (= (lower-case guess) (-> db :pokemon :name))
-     (do
-       (js/console.log  guess)
-       (assoc db :guess true))
-     (do
-       (js/console.log "try again! it's:" (-> db :pokemon :name))
-       (assoc db :guess false)))))
+     (assoc db :guess true
+            :caught (conj (:caught db) (:pokemon db)))
+     (assoc db :guess false :strikes (-> db :strikes dec)))))

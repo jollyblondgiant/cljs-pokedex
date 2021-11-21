@@ -1,38 +1,15 @@
 (ns cljs-pokedex.subs
   (:require
-   [re-frame.core :as re-frame]))
+   [re-frame.core :as re-frame :refer [reg-sub]]))
 
-(re-frame/reg-sub
- ::name
- (fn [db]
-   (:name db)))
+(reg-sub ::pokemon :pokemon)
 
-(re-frame/reg-sub
- ::sprite
- (fn [db]
-   (:sprite db)))
+(reg-sub ::guess-result  :guess)
 
-(re-frame/reg-sub
- ::pokemon
- (fn [db]
-   (:pokemon db)))
+(reg-sub ::guessing?  #(-> % :guess keyword?))
 
-(re-frame/reg-sub
- ::guess-result
- (fn [db]
-   (:guess db)))
+(reg-sub ::guess-input :guess-input)
 
-(re-frame/reg-sub
- ::guessing?
- (fn [db]
-   (keyword? (:guess db))))
+(reg-sub ::caught :caught)
 
-(re-frame/reg-sub
- ::guess-input
- (fn [db]
-   (:guess-input db)))
-
-(re-frame/reg-sub
- ::encounter
- (fn [db]
-   ))
+(reg-sub ::strikes :strikes)

@@ -8,7 +8,6 @@ html {
 
 #navball-row {
   /* float: left; */
-
   position: absolute;
   left: 150px;
   bottom: 0px;
@@ -20,7 +19,22 @@ html {
   font-weight: bold;
 
 }
+#navball.row > input {
+  margin-left: 20%;
+}
 
+.nav-ball {
+  border-radius:  50%;
+  margin-right: -25%;
+}
+
+img.poke-ball {
+  border-radius: 50%;
+  width: 50%;
+}
+#pokemon-party {
+  position: absolute;
+}
 #navball-row .input {
   height: fit-content;
   margin: auto 0 ;
@@ -30,12 +44,7 @@ html {
   margin: 0 auto ;
   width: 50% ;
 }
-#sprite-mask {
-  position: absolute ;
-  margin: 0 auto ;
-  width: 50%;
-  background-color: #000000;
-}
+
 h1, h2, h3 {
   color: #000;
 }
