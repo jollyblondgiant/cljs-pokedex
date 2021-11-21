@@ -1,0 +1,1 @@
+{"version":3,"sources":["cljs_pokedex/config.cljs"],"mappings":";AAEA,AAAKA,mCACMC","names":["cljs-pokedex.config/debug?","js/goog.DEBUG"],"sourcesContent":["(ns cljs-pokedex.config)\n\n(def debug?\n  ^boolean goog.DEBUG)\n"]}
