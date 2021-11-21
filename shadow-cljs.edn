@@ -1,25 +1,12 @@
 {:nrepl {:port 8777}
-
-
-
  :source-paths ["src" "test"]
-
  :dependencies
  [[reagent "1.1.0"]
   [re-frame "1.2.0"]
-
-  [cljs-http "0.1.46"]
-  [happy "0.5.2"]
-
-  [com.zachallaun/datomic-cljs "0.0.1-alpha-1"]
-  [com.cognitect/transit-cljs "0.8.269"] ;;for parsing large json
-
-  [binaryage/devtools "1.0.3"]]
-
+  [cljs-http "0.1.46"]]
  :dev-http
  {8280 "resources/public"
   8290 "target/browser-test"}
-
  :builds
  {:app
   {:target     :browser
