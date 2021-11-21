@@ -3,8 +3,7 @@
   (:require [cljs-http.client :as http]
             ;;[datomic-cljs.api :as d]
             [cljs.core.async :refer [<!]]
-            [re-frame.core :as re-frame :refer [subscribe dispatch]]
-            [cognitect.transit :as t]))
+            [re-frame.core :as re-frame :refer [subscribe dispatch]]))
 
 (def default-db
   {:name "re-frame"
